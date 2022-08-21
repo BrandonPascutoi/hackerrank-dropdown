@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
+  const divStyle = {
+    height: '50px',
+    width: '300px',
+    border: '2px solid cornflowerblue',
+    borderRadius: '12px',
+    position: 'absolute',
+    top: '50px',
+    left: '50px',
+    cursor: 'pointer',
+    display: 'flex',
+    justifyContent: 'flex-start'
+  }
+
+  const innerDivStyle = {
+    height: '50px',
+    width: '300px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: '0 15px'
+  }
+
+  const h1Style = {
+    fontSize: '20px',
+    WebkitTouchCallout: 'none',
+    WebkitUserSelect: 'none',
+    khtmlUserSelect: 'none',
+    MozUserSelect: 'none',
+    msUserSelect: 'none',
+    UserSelect: 'none'
+  }
+
+  const svgStyle = {
+    height: '30px'
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={divStyle} className="App">
+      <div style={innerDivStyle} className="InnerDiv">
+        <h1 style={h1Style}>Select A Location</h1>
+        <svg style={svgStyle} xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 122.88 122.88"><title>round-line-bottom-arrow</title><path d="M122.85,61.45h0A61.39,61.39,0,0,0,61.45,0V0h0V0A61.38,61.38,0,0,0,0,61.43H0v0H0a61.35,61.35,0,0,0,61.4,61.38v0h0v0a61.34,61.34,0,0,0,61.38-61.4ZM61.44,91,33.92,60.47H51.5V39.2H71.38V60.47H89L61.44,91Zm48.28-29.54h0a48.36,48.36,0,0,1-48.27,48.29v0h0v0A48.35,48.35,0,0,1,13.14,61.47h0v0h0A48.27,48.27,0,0,1,61.41,13.14v0h0v0a48.3,48.3,0,0,1,48.27,48.3Z"/></svg>
+      </div>
     </div>
   );
 }
