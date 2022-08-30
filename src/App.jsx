@@ -4,12 +4,22 @@ import InnerDiv from './components/InnerDiv'
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {menuIsOpen: false}
+
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick = async () => {
+    await this.setState(state => ({
+      menuIsOpen: !state.menuIsOpen
+    }));
+    console.log(this.state.menuIsOpen)
   }
 
   render(){
 
     const divStyle = {
-    height: '50px',
     width: '300px',
     border: '2px solid cornflowerblue',
     borderRadius: '12px',
@@ -18,11 +28,12 @@ class App extends React.Component {
     left: '50px',
     cursor: 'pointer',
     display: 'flex',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    transition: 'all 1s linear'
   }
 
     return (
-      <div style={divStyle} className="App">
+      <div onClick={this.handleClick} style={divStyle} className="App">
         <InnerDiv/>
       </div>
     );
