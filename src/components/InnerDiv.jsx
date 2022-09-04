@@ -1,35 +1,33 @@
 import React from "react";
 
+const innerDivStyle = {
+    height: '50px',
+    width: '300px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: '0 15px'
+}
+
+const h1Style = {
+    fontSize: '20px',
+    WebkitTouchCallout: 'none',
+    WebkitUserSelect: 'none',
+    khtmlUserSelect: 'none',
+    MozUserSelect: 'none',
+    msUserSelect: 'none',
+    UserSelect: 'none'
+}
+        
+const svgStyle = {
+    height: '30px'
+}
+
 class InnerDiv extends React.Component {
     constructor(props) {
         super(props);
     }
-
     render(){
-
-        const innerDivStyle = {
-            height: '50px',
-            width: '300px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: '0 15px'
-        }
-
-        const h1Style = {
-            fontSize: '20px',
-            WebkitTouchCallout: 'none',
-            WebkitUserSelect: 'none',
-            khtmlUserSelect: 'none',
-            MozUserSelect: 'none',
-            msUserSelect: 'none',
-            UserSelect: 'none'
-        }
-        
-        const svgStyle = {
-            height: '30px'
-        }
-
         return (
             <div style={innerDivStyle} className="InnerDiv">
                 <h1 style={h1Style}>Select A Location</h1>
@@ -39,4 +37,4 @@ class InnerDiv extends React.Component {
     }
 }
 
-export default InnerDiv
+export default InnerDiv;
