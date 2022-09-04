@@ -1,7 +1,6 @@
 import React from "react";
-import InnerDiv from './components/InnerDiv'
-
-
+import InnerDiv from './components/InnerDiv';
+import CountiesList from "./components/countiesList";
 
 class App extends React.Component {
   constructor(props) {
@@ -26,7 +25,8 @@ class App extends React.Component {
       }))
     }
   }
-  render(){
+
+  render() {
     const divStyle = {
       height: this.state.height,
       width: '300px',
@@ -37,12 +37,16 @@ class App extends React.Component {
       left: '50px',
       cursor: 'pointer',
       display: 'flex',
+      flexDirection: 'column',
       justifyContent: 'flex-start',
-      transition: 'all 0.1s linear'
+      alignItems: 'center',
+      transition: 'all 0.1s linear',
     }
+
     return (
       <div onClick={this.handleClick} style={divStyle} className="App">
         <InnerDiv/>
+        <CountiesList/>
       </div>
     );
   }

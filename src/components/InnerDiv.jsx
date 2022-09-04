@@ -2,11 +2,10 @@ import React from "react";
 
 const innerDivStyle = {
     height: '50px',
-    width: '300px',
+    width: '90%',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '0 15px'
+    justifyContent: 'space-between'
 }
 
 const h1Style = {
