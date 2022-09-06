@@ -41,6 +41,7 @@ class App extends React.Component {
       justifyContent: 'flex-start',
       alignItems: 'center',
       transition: 'all 0.1s linear',
+      overflow: 'hidden'
     }
 
     return (
