@@ -36,7 +36,8 @@ const CountiesList = () => {
         'Wicklow'
     ]
 
-    const liItem = useRef(null)
+    const liItemContainerRef = useRef(null)
+    const liItem = useRef(null);
     
     const onHover = (element) => {
         element.style.backgroundColor = 'cornflowerblue'
@@ -44,6 +45,12 @@ const CountiesList = () => {
 
     const onHoverExit = (element) => {
         element.style.backgroundColor = '#a9c4f5'
+    }
+
+    const onClickChangeH1 = (element) => {
+        let h1 = document.querySelector('.location');
+        const liItem = document.querySelector('.liItem');
+        h1.innerHTML = element;
     }
         
     const ulStyle = {
@@ -69,8 +76,8 @@ const CountiesList = () => {
         
     let countiesListItems = counties.map(county => {
         return (
-            <div ref={liItem} key={county} style={liItemContainer} onMouseOver={(e) => onHover(e.target)} onMouseLeave={(e) => onHoverExit(e.target)}>
-                <li style={liStyle}>{county}</li>
+            <div ref={liItemContainerRef} key={county} style={liItemContainer} onMouseOver={(e) => onHover(e.target)} onMouseLeave={(e) => onHoverExit(e.target)} onClick={(e) => onClickChangeH1(county)}>
+                <li className="liItem" ref={liItem} style={liStyle}>{county}</li>
             </div>
         )
     })
