@@ -26,6 +26,22 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount() {
+    window.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        this.setState(() => ({
+          menuIsOpen: true,
+          height: '350px'
+        }))
+      } else if (e.key === 'Escape') {
+        this.setState(() => ({
+          menuIsOpen: false,
+          height: '50px'
+        }))
+      }
+    });
+  }
+
   render() {
     const divStyle = {
       height: this.state.height,
