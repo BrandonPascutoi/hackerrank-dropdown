@@ -76,7 +76,7 @@ const CountiesList = () => {
         
     let countiesListItems = counties.map(county => {
         return (
-            <div ref={liItemContainerRef} key={county} style={liItemContainer} onMouseOver={(e) => onHover(e.target)} onMouseLeave={(e) => onHoverExit(e.target)} onClick={(e) => onClickChangeH1(county)}>
+            <div ref={liItemContainerRef} key={county} style={liItemContainer} onMouseOver={(e) => onHover(e.target)} onMouseLeave={(e) => onHoverExit(e.target)} onClick={(e) => onClickChangeH1(county)} className={'liItemContainer'}>
                 <li className="liItem" ref={liItem} style={liStyle}>{county}</li>
             </div>
         )

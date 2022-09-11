@@ -27,6 +27,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    let count = -1;
+    let menuOptions = document.querySelectorAll('.liItemContainer');
     window.addEventListener('keydown', e => {
       if (e.key === 'Enter') {
         this.setState(() => ({
@@ -38,6 +40,18 @@ class App extends React.Component {
           menuIsOpen: false,
           height: '50px'
         }))
+      } else if (e.key === 'Down' || e.key === 'ArrowDown') {
+        if (this.state.menuIsOpen === true) {
+          count++
+          menuOptions[count].style.backgroundColor = 'cornflowerblue'
+          menuOptions[count - 1].style.backgroundColor = '#a9c4f5'
+        }
+      } else if (e.key === 'Up' || e.key === 'ArrowUp') {
+        if (this.state.menuIsOpen === true) {
+          count--
+          menuOptions[count].style.backgroundColor = 'cornflowerblue'
+          menuOptions[count + 1].style.backgroundColor = '#a9c4f5'
+        }
       }
     });
   }
