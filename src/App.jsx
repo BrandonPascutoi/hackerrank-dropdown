@@ -27,14 +27,18 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let count = -1;
+    let count = 0;
     let menuOptions = document.querySelectorAll('.liItemContainer');
     window.addEventListener('keydown', e => {
       if (e.key === 'Enter') {
+        menuOptions[0].style.backgroundColor = 'cornflowerblue'
         this.setState(() => ({
           menuIsOpen: true,
           height: '350px'
         }))
+        if (this.state.menuIsOpen === true && e.key === 'Enter') {
+          
+        }
       } else if (e.key === 'Escape') {
         this.setState(() => ({
           menuIsOpen: false,
@@ -42,15 +46,26 @@ class App extends React.Component {
         }))
       } else if (e.key === 'Down' || e.key === 'ArrowDown') {
         if (this.state.menuIsOpen === true) {
-          count++
-          menuOptions[count].style.backgroundColor = 'cornflowerblue'
-          menuOptions[count - 1].style.backgroundColor = '#a9c4f5'
+          count++;
+          if (count > 31) {
+            count = 0;
+            menuOptions[31].style.backgroundColor = '#a9c4f5';
+          } else {
+            menuOptions[count - 1].style.backgroundColor = '#a9c4f5';
+          }
+          menuOptions[count].style.backgroundColor = 'cornflowerblue';
+          menuOptions[count].focus();
         }
       } else if (e.key === 'Up' || e.key === 'ArrowUp') {
         if (this.state.menuIsOpen === true) {
-          count--
-          menuOptions[count].style.backgroundColor = 'cornflowerblue'
-          menuOptions[count + 1].style.backgroundColor = '#a9c4f5'
+          count--;
+          if (count < 0) {
+            count = 31;
+            menuOptions[0].style.backgroundColor = '#a9c4f5';
+          } else {
+            menuOptions[count + 1].style.backgroundColor = '#a9c4f5';
+          }
+          menuOptions[count].style.backgroundColor = 'cornflowerblue';
         }
       }
     });
