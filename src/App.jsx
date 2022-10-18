@@ -29,21 +29,34 @@ class App extends React.Component {
   componentDidMount() {
     let count = 0;
     let menuOptions = document.querySelectorAll('.liItemContainer');
-    window.addEventListener('keydown', e => {
+    let h1 = document.querySelector('.location');
+    window.addEventListener('keyup', e => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
       if (e.key === 'Enter') {
-        menuOptions[0].style.backgroundColor = 'cornflowerblue'
-        this.setState(() => ({
-          menuIsOpen: true,
-          height: '350px'
-        }))
-        if (this.state.menuIsOpen === true && e.key === 'Enter') {
-          
+        if (this.state.menuIsOpen === false) {
+          count = 0;
+          menuOptions[0].style.backgroundColor = 'cornflowerblue'
+          this.setState(() => ({
+            menuIsOpen: true,
+            height: '350px'
+          }));
+          console.log(1);
+        } else if (this.state.menuIsOpen === true) {
+          h1.innerHTML = menuOptions[count].innerHTML;
+          menuOptions[count].style.backgroundColor = '#a9c4f5'
+          this.setState(() => ({
+            menuIsOpen: false,
+            height: '50px'
+          }));
+          console.log(2)
         }
       } else if (e.key === 'Escape') {
         this.setState(() => ({
           menuIsOpen: false,
           height: '50px'
-        }))
+        }));
+        h1.innerHTML = 'Select A Location'
       } else if (e.key === 'Down' || e.key === 'ArrowDown') {
         if (this.state.menuIsOpen === true) {
           count++;
@@ -54,7 +67,6 @@ class App extends React.Component {
             menuOptions[count - 1].style.backgroundColor = '#a9c4f5';
           }
           menuOptions[count].style.backgroundColor = 'cornflowerblue';
-          menuOptions[count].focus();
         }
       } else if (e.key === 'Up' || e.key === 'ArrowUp') {
         if (this.state.menuIsOpen === true) {

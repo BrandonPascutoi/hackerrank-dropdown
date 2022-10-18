@@ -9,6 +9,8 @@ const innerDivStyle = {
 }
 
 const h1Style = {
+    listStyleType: 'none',
+    paddingInlineStart: 0,
     fontSize: '20px',
     WebkitTouchCallout: 'none',
     WebkitUserSelect: 'none',
