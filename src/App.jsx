@@ -28,6 +28,7 @@ class App extends React.Component {
 
   componentDidMount() {
     let count = 0;
+    let countiesContainer = document.querySelector('.countiesContainer')
     let menuOptions = document.querySelectorAll('.liItemContainer');
     let h1 = document.querySelector('.location');
     window.addEventListener('keyup', e => {
@@ -41,7 +42,6 @@ class App extends React.Component {
             menuIsOpen: true,
             height: '350px'
           }));
-          console.log(1);
         } else if (this.state.menuIsOpen === true) {
           h1.innerHTML = menuOptions[count].innerHTML;
           menuOptions[count].style.backgroundColor = '#a9c4f5'
@@ -49,13 +49,13 @@ class App extends React.Component {
             menuIsOpen: false,
             height: '50px'
           }));
-          console.log(2)
         }
       } else if (e.key === 'Escape') {
         this.setState(() => ({
           menuIsOpen: false,
           height: '50px'
         }));
+        menuOptions[count].style.backgroundColor = '#a9c4f5';
         h1.innerHTML = 'Select A Location'
       } else if (e.key === 'Down' || e.key === 'ArrowDown') {
         if (this.state.menuIsOpen === true) {
@@ -66,6 +66,10 @@ class App extends React.Component {
           } else {
             menuOptions[count - 1].style.backgroundColor = '#a9c4f5';
           }
+          if (count > 2 && count < 29) {
+            countiesContainer.scrollBy(0, 50)
+          }
+          console.log(count)
           menuOptions[count].style.backgroundColor = 'cornflowerblue';
         }
       } else if (e.key === 'Up' || e.key === 'ArrowUp') {
@@ -77,6 +81,10 @@ class App extends React.Component {
           } else {
             menuOptions[count + 1].style.backgroundColor = '#a9c4f5';
           }
+          if (count < 28 && count > 2) {
+            countiesContainer.scrollBy(0, -50)
+          }
+          console.log(count)
           menuOptions[count].style.backgroundColor = 'cornflowerblue';
         }
       }

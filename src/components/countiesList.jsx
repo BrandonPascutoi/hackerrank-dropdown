@@ -83,7 +83,7 @@ const CountiesList = () => {
     })
         
     return (
-        <ul style={ulStyle}>
+        <ul style={ulStyle} className="countiesContainer">
             {countiesListItems}
         </ul>
     )
