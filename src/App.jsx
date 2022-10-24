@@ -63,6 +63,7 @@ class App extends React.Component {
           if (count > 31) {
             count = 0;
             menuOptions[31].style.backgroundColor = '#a9c4f5';
+            countiesContainer.scrollTo(0, 0)
           } else {
             menuOptions[count - 1].style.backgroundColor = '#a9c4f5';
           }
@@ -78,6 +79,7 @@ class App extends React.Component {
           if (count < 0) {
             count = 31;
             menuOptions[0].style.backgroundColor = '#a9c4f5';
+            countiesContainer.scrollTo(0, countiesContainer.scrollHeight)
           } else {
             menuOptions[count + 1].style.backgroundColor = '#a9c4f5';
           }
